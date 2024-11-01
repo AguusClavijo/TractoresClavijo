@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background-color: chartreuse;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+    border-bottom: 2px solid black;
+}
+
+.logo {
+    font-size: 2.3rem;
+    color: black;
+    user-select: none;
+    cursor: pointer;
+}
+
+.navegacion a {
+    position: relative;
+    font-size: 1.1rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navegacion a:not(.btn)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: -6px;
+    left: 0;
+    height: 2px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s;
+}
+
+.navegacion a:not(.btn):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navegacion .btn {
+    width: auto;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: black;
+    font-weight: 600;
+    margin-left: 40px;
+}
+
+.navegacion .btn:hover {
+    background: #fff;
+    color: #090f1d;
+}
+
+main {
+    flex: 1;
+    padding-top: 120px;
+}
+
+footer {
+    background-color: #222;
+    color: #b5b5b5;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.company-info {
+    max-width: 300px;
+}
+
+.company-info p {
+    margin-bottom: 15px;
+}
+
+.social-media a {
+    display: block;
+    margin-bottom: 10px;
+    color: #b5b5b5;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.social-media a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.ubicacion h3 {
+    color: chartreuse;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.ubicacion p {
+    line-height: 1.6;
+}
+
+.enlaces h3 {
+    color: chartreuse;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.enlaces a {
+    display: block;
+    margin-bottom: 8px;
+    color: #b5b5b5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.enlaces a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+i{
+    margin: 10px;
+    font-size: 30px;
+}

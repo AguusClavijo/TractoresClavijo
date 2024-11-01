@@ -8,7 +8,7 @@
     src="https://kit.fontawesome.com/81448e9ee5.js"
     crossorigin="anonymous"></script>
   <title>Tractores Clavijo</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="login.css" />
 </head>
 
 <body>
