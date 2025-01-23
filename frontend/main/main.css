@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
+/* Globales */
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -8,27 +9,33 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-size: cover;
-    background-position: center;
+body, main, .carousel {
+    margin: 0;
+    padding: 0;
 }
 
+main {
+    flex: 1;
+}
+
+/* Header */
 header {
     background-color: chartreuse;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 99;
     border-bottom: 2px solid black;
+    padding: 5px 20px;
+}
+
+.navbar {
+    padding: 0;
+    height: 50px;
 }
 
 .logo {
@@ -66,7 +73,6 @@ header {
 }
 
 .navegacion .btn {
-    width: auto;
     padding: 10px 20px;
     background: transparent;
     border: 2px solid black;
@@ -83,94 +89,92 @@ header {
     color: #090f1d;
 }
 
-main {
-    flex: 1;
-    padding-top: 120px;
+/* Carrusel */
+.carousel {
+    position: relative;
 }
 
+.carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+}
+
+/* Footer */
 footer {
-    background-color: #222;
-    color: #b5b5b5;
+    background-color: #1e1e1e;
+    color: #ffffff;
     padding: 40px 20px;
     font-size: 0.9rem;
 }
 
-.footer-container {
+footer .row {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-top: 1px solid #555;
-    padding-top: 20px;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Alinea las secciones arriba */
+    gap: 50px; /* Espaciado entre columnas */
+    text-align: center; /* Centra el texto de las columnas */
+    flex-wrap: wrap; /* Adaptabilidad para pantallas pequeñas */
 }
 
-.footer-section {
-    flex: 1;
-    padding: 0 20px;
-}
-
-.company-info {
-    max-width: 300px;
-}
-
-.company-info p {
-    margin-bottom: 15px;
-}
-
-.social-media a {
-    display: block;
-    margin-bottom: 10px;
-    color: #b5b5b5;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.social-media a img {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-.ubicacion h3 {
-    color: chartreuse;
+footer h5 {
+    color: #4caf50;
+    margin-bottom: 1rem;
     font-size: 1.2rem;
-    margin-bottom: 10px;
 }
 
-.ubicacion p {
-    line-height: 1.6;
-}
-
-.enlaces h3 {
-    color: chartreuse;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.enlaces a {
-    display: block;
-    margin-bottom: 8px;
-    color: #b5b5b5;
+footer a {
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.enlaces a:hover {
-    color: #fff;
+footer a:hover {
+    color: #4caf50;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #555;
+footer address,
+footer .social-links {
+    margin-top: 10px;
+    line-height: 1.6;
+    font-style: normal;
+}
+
+footer .social-links i {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #ffffff;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+footer .social-links i:hover {
+    color: #4caf50;
+}
+
+footer .border-top {
     margin-top: 20px;
-    color: #666;
-    font-size: 0.8rem;
+    border-color: #4caf50;
 }
 
-i{
-    margin: 10px;
-    font-size: 30px;
+footer small {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    footer .row {
+        flex-direction: column; /* Apila las columnas */
+        text-align: center; /* Centra el texto */
+    }
+
+    footer .social-links i {
+        margin: 10px; /* Más espaciado en pantallas pequeñas */
+    }
 }
