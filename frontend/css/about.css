@@ -1,0 +1,154 @@
+/* css/about.css */
+@import url('style.css'); /* Importa los estilos globales y del navbar/footer */
+
+/* --- Estilos Específicos para la Página "Sobre Nosotros" --- */
+
+body.about-page {
+    background-color: #f4f4f4; /* Un fondo ligeramente diferente para esta página, opcional */
+}
+
+.about-header {
+    background-color: var(--primary-green); /* Usamos el verde principal */
+    color: var(--light-text);
+    padding: 4rem 1rem; /* Más padding para un encabezado hero */
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.about-header p.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section {
+    padding: 2rem 0;
+}
+
+.about-section h2 {
+    color: var(--primary-green);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Centrar títulos de sección */
+}
+
+.about-section h3 {
+    color: var(--dark-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-section p,
+.about-section ul li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.highlight-box {
+    background-color: var(--light-green-accent); /* Verde más claro para destacar */
+    color: var(--light-text);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.highlight-box h3 {
+    color: var(--light-text); /* Asegurar que el título dentro sea claro */
+    margin-top: 0;
+}
+
+.highlight-box p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.achievements-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievements-list li {
+    background-color: #ffffff;
+    border-left: 5px solid var(--primary-green);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.achievements-list li strong {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.differentiators-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.differentiators-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.differentiators-list .bi {
+    color: var(--light-green-accent);
+    font-size: 1.8rem;
+    margin-right: 15px;
+    margin-top: 2px; /* Pequeño ajuste vertical */
+}
+
+.differentiators-list strong {
+    font-weight: 600;
+    color: var(--dark-text);
+    display: block; /* Para que ocupe su línea */
+    margin-bottom: 0.25rem;
+}
+
+.final-commitment {
+    background-color: #e9e9e9; /* Un gris claro diferente */
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+/* Para mejorar la visualización de las columnas de logros si se quiere */
+.achievements-section .row > div {
+    margin-bottom: 1.5rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .about-header h1 {
+        font-size: 2.2rem;
+    }
+    .about-header p.lead {
+        font-size: 1.1rem;
+    }
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+    .differentiators-list li {
+        font-size: 1rem;
+    }
+    .differentiators-list .bi {
+        font-size: 1.5rem;
+    }
+}

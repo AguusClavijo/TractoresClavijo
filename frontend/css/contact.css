@@ -1,0 +1,212 @@
+/* css/contact.css */
+@import url('style.css'); /* Importa los estilos globales y del navbar/footer */
+
+/* --- Estilos Específicos para la Página "Contacto" --- */
+
+body.contact-page {
+    background-color: #f8f9fa; /* Un fondo muy claro, ligeramente diferente */
+}
+
+.contact-header {
+    background-color: var(--primary-green);
+    color: var(--light-text);
+    padding: 4rem 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.contact-header p.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-section {
+    padding: 2rem 0;
+}
+
+.contact-section h2 {
+    color: var(--primary-green);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card .contact-icon {
+    font-size: 3rem;
+    color: var(--light-green-accent);
+    margin-bottom: 1rem;
+    display: block; /* Para que el margin-bottom funcione bien */
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-card p,
+.contact-card ul li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.contact-card a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: var(--light-green-accent);
+    text-decoration: underline;
+}
+
+/* Estilos para los números de teléfono para que sean clicables */
+.contact-card .phone-link {
+    display: block; /* Para que cada nombre y número esté en su línea */
+    margin-bottom: 0.75rem;
+}
+.contact-card .phone-link strong {
+    color: var(--dark-text);
+}
+
+
+/* Opcional: Si quieres añadir un formulario de contacto más adelante */
+.contact-form-section {
+    background-color: #e9ecef;
+    padding: 3rem 0;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.contact-form-section {
+    background-color: #e9ecef; 
+    padding: 3rem 1rem; 
+    margin-top: 3rem; 
+}
+
+.contact-form-section h2 {
+    color: var(--primary-green);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-form .form-label {
+    font-weight: 500;
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--light-green-accent);
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.contact-form textarea.form-control {
+    min-height: 120px;
+}
+
+.contact-form .btn-submit {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    color: var(--light-text);
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form .btn-submit:hover {
+    background-color: var(--light-green-accent);
+    border-color: var(--light-green-accent);
+    color: var(--light-text);
+}
+
+.was-validated .form-control:invalid, .form-control.is-invalid {
+    border-color: #dc3545;
+}
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
+
+@media (max-width: 767.98px) {
+    .contact-header h1 {
+        font-size: 2.2rem;
+    }
+    .contact-header p.lead {
+        font-size: 1.1rem;
+    }
+    .contact-section h2 {
+        font-size: 1.8rem;
+    }
+    .contact-card {
+        padding: 2rem;
+    }
+}
