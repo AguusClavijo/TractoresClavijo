@@ -13,20 +13,66 @@
 
 <body>
   <header>
-    <h2 class="logo">Tractores Clavijo</h2>
-    <nav class="navegacion">
-      <a href="../main/main.php">Inicio</a>
+    <h1>Tractores Clavijo</h1>
+    <nav class="navegacion" id="navegacion"> <a href="../main/main.php">Inicio</a>
       <a href="../about/about.php">Informacion</a>
       <a href="../tractors/tractors.php">Tractores</a>
       <a href="../contact/contact.php">Contactos</a>
-    </nav>
+      <button class="btn" id="loginBtn">Iniciar Sesión</button> </nav>
+    <div class="menu-toggle" id="menuToggle"> <i class="fa-solid fa-bars"></i>
+    </div>
   </header>
 
-  <div class="fondo">
-    <span class="icono-cerrar"><i class="fa-solid fa-xmark"></i></span>
-
-    <div class="contenedor-form"></div>
+  <div class="fondo" id="loginFormContainer"> <span class="icono-cerrar" id="closeIcon"><i class="fa-solid fa-xmark"></i></span> <div class="contenedor-form login" id="loginForm"> <h2>Iniciar sesión</h2>
+    <div class="contenedor-input">
+      <input type="text" required>
+      <label>Usuario</label>
+      <span class="icono"><i class="fa-solid fa-user"></i></span>
+    </div>
+    <div class="contenedor-input">
+      <input type="password" required>
+      <label>Contraseña</label>
+      <span class="icono"><i class="fa-solid fa-lock"></i></span>
+    </div>
+    <button class="btn">Entrar</button>
+    <div class="registrar">
+      <p>¿No tienes una cuenta? <a href="#" class="registrar-link" id="registerLink">Regístrate</a></p> </div>
   </div>
+
+  <div class="contenedor-form registrar" id="registerForm"> <h2>Registrarse</h2>
+      <form action="#">
+          
+        <div class="contenedor-input">
+          <span class="icono"><i class="fa-solid fa-user"></i></span>
+          <input type="text" required>
+          <label for="#">Nombre de Usuario</label>
+        </div> 
+
+        <div class="contenedor-input">
+          <span class="icono"><i class="fa-solid fa-envelope"></i></span>
+          <input type="email" required>
+          <label for="#">Email</label>
+        </div>
+
+        <div class="contenedor-input">
+          <span class="icono"><i class="fa-solid fa-lock"></i></span>
+          <input type="password" required>
+          <label for="#">Contraseña</label>
+        </div>
+
+        <div class="recordar">
+          <label for="#"><input type="checkbox">Acepto los términos y condiciones</label>
+        </div>
+
+        <button type="submit" class="btn">Registrarme</button>
+
+        <div class="registrar">
+          <p>¿Tienes una cuenta? <a href="#" class="login-link" id="loginLink">Iniciar Sesión</a></p> </div>
+      </form>
+    </div>
+    </div>
+
+    <script src="login.js"></script>
 </body>
 
 </html>

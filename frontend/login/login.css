@@ -22,7 +22,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 50px 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,6 +34,11 @@ header{
     color: black;
     user-select: none;
     cursor: pointer;
+}
+
+.navegacion {
+    display: flex; /* Asegura que la navegación sea flex en desktop */
+    align-items: center; /* Centra verticalmente los elementos de la navegación */
 }
 
 .navegacion a{
@@ -61,4 +66,358 @@ header{
 .navegacion a:hover::after{
     transform: scaleX(1);
     transform-origin: left;
+}
+
+/* Estilo del botón "Iniciar Sesión" en el header (desktop) */
+.navegacion #loginBtn.btn{ /* Seleccionamos el botón con ID para más especificidad */
+    width: 148px;
+    height: 58px;
+    background: transparent;
+    border: 2px solid #090f1d; /* Borde oscuro para desktop */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #090f1d; /* Texto oscuro para desktop */
+    font-weight: 600;
+    margin-left: 40px;
+    transition: background .3s, color .3s; /* Añadir transición para hover */
+}
+
+.navegacion #loginBtn.btn:hover{
+    background: #090f1d; /* Fondo oscuro al hacer hover */
+    color: #fff; /* Texto blanco al hacer hover */
+}
+
+/* Ocultar el icono de hamburguesa por defecto en desktop */
+.menu-toggle {
+    display: none;
+}
+
+.fondo{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Mantener overflow hidden para el efecto de deslizamiento */
+    transition: transform .5s ease, height .2s ease;
+    transform: scale(0);
+}
+
+.fondo.active-btn{
+    transform: scale(1);
+}
+
+.fondo.active{
+    height: 455px;
+}
+
+.fondo .contenedor-form{
+    width: 100%;
+    padding: 40px;
+}
+
+.fondo .contenedor-form.login{
+    position: absolute;
+    transition: transform 0.4s ease;
+    transform: translateX(0);
+}
+
+.fondo.active .contenedor-form.login{
+    transform: translateX(-400px);
+}
+
+.fondo .contenedor-form.registrar{
+    position: absolute;
+    transition: transform 0.4s ease;
+    transform: translateX(400px);
+}
+
+
+.fondo.active .contenedor-form.registrar{
+    transform: translateX(0);
+}
+
+
+.fondo .icono-cerrar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: #090f1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 1.8em;
+    color: #f1efef;
+}
+
+.contenedor-form h2{
+    font-size: 2em;
+    color: #f1efef;
+    text-align: center;
+}
+
+.contenedor-input{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #f1efef;
+    margin: 30px 0;
+}
+
+.contenedor-input label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 600;
+    pointer-events: none;
+    transition: .4s;
+    color: #f1efef;
+}
+
+.contenedor-input input:focus~label,
+.contenedor-input input:valid~label{
+    top: -5px;
+}
+
+.contenedor-input input{
+    width: 100%;
+    height: 100%;
+    background:  transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #f1efef;
+    padding: 0 35px 0 5px;
+}
+
+.contenedor-input .icono{
+    position: absolute;
+    right: 8px;
+    font-size: 1.4em;
+    color: #f1efef;
+    line-height: 57px;
+}
+
+
+.recordar{
+    font-size: .9em;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.recordar label input{
+    accent-color: #090f1d;
+    margin-right: 3px;
+}
+
+.recordar a{
+    color: #f1efef;
+    text-decoration: none;
+}
+
+.recordar a:hover{
+    text-decoration: underline;
+}
+
+.btn{ /* Este es el estilo general para los botones dentro de los formularios */
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #090f1d;
+    color: #f1efef;
+}
+
+.registrar{
+    font-size: .9em;
+    color: #f1efef;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.registrar p a{
+    color: #f1efef;
+    text-decoration: none;
+}
+
+.registrar p a:hover{
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas más pequeñas que 768px (ej. tabletas y menores) */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 30px; /* Ajusta el relleno del encabezado para pantallas más pequeñas */
+    }
+
+    .logo {
+        font-size: 1.8rem; /* Logo más pequeño */
+    }
+
+    /* Mostrar el icono de hamburguesa en móviles */
+    .menu-toggle {
+        display: block; /* Muestra el icono de hamburguesa */
+        font-size: 2rem;
+        color: black; /* Color del icono de hamburguesa */
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .navegacion {
+        /* Oculta los enlaces de navegación por defecto para móvil, se alternará con un menú de hamburguesa */
+        display: none; /* Ocultar por defecto en móvil */
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Debajo del encabezado */
+        left: 0;
+        width: 100%;
+        background-color: rgba(9, 15, 29, 0.9); /* Fondo oscuro para el menú móvil */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 20px 0;
+        align-items: center; /* Centra los elementos horizontalmente en el menú móvil */
+    }
+
+    .navegacion.active {
+        display: flex; /* Muestra la navegación cuando está activa (por el botón hamburguesa) */
+    }
+
+    .navegacion a {
+        margin: 15px 0; /* Ajusta el margen para enlaces verticales */
+        text-align: center;
+        color: #f1efef; /* Texto blanco para mejor contraste */
+    }
+
+    .navegacion a::after {
+        background: #f1efef; /* Subrayado blanco para móvil */
+    }
+
+    /* Estilo del botón "Iniciar Sesión" dentro del menú de hamburguesa */
+    .navegacion #loginBtn.btn { /* Seleccionamos el botón con ID y clase para más especificidad */
+        margin: 20px auto; /* Centra el botón horizontalmente y añade margen vertical */
+        width: 80%; /* Hace el botón más ancho */
+        height: 50px;
+        border: 2px solid #f1efef; /* Borde blanco */
+        color: #f1efef; /* Texto blanco */
+        background: transparent; /* Fondo transparente inicialmente */
+    }
+
+    .navegacion #loginBtn.btn:hover {
+        background: #f1efef; /* Fondo blanco al hacer hover */
+        color: #090f1d; /* Texto oscuro al hacer hover */
+    }
+
+    .fondo {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        overflow: visible; /* Permitir que el contenido se desborde si es necesario */
+        min-height: 440px; /* Asegura una altura mínima para el fondo */
+    }
+
+    /* Desactivar transformaciones y ajustar posicionamiento para los formularios en móvil */
+    .fondo .contenedor-form.login,
+    .fondo .contenedor-form.registrar {
+        position: relative; /* Vuelve a posición relativa para que ocupen espacio normal */
+        transform: translateX(0) !important; /* Elimina cualquier transformación */
+        transition: none !important; /* Elimina transiciones */
+        padding: 20px; /* Reduce un poco el padding en móviles */
+    }
+
+    /* Ocultar/Mostrar formularios usando display en móviles */
+    .fondo .contenedor-form.login {
+        display: block; /* Por defecto muestra el login */
+    }
+    .fondo .contenedor-form.registrar {
+        display: none; /* Oculta el registro por defecto */
+    }
+
+    /* Cuando el fondo está activo, el formulario de registro se muestra y el de login se oculta */
+    .fondo.active .contenedor-form.login {
+        display: none; /* Oculta el login */
+    }
+    .fondo.active .contenedor-form.registrar {
+        display: block; /* Muestra el registro */
+    }
+
+    /* Ajustar altura del fondo cuando está activo (muestra el registro) */
+    .fondo.active {
+        height: auto; /* Permite que la altura se ajuste al contenido del formulario de registro */
+        min-height: 455px; /* Asegura una altura mínima para el registro */
+    }
+}
+
+/* Para pantallas muy pequeñas (e.g., mobile phones) */
+@media (max-width: 480px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .fondo {
+        width: 95%; /* Incluso más ancho en pantallas muy pequeñas */
+        padding: 15px; /* Ajusta más el padding dentro del formulario */
+    }
+
+    .contenedor-form h2 {
+        font-size: 1.6em; /* Un poco más pequeño para pantallas muy chicas */
+    }
+
+    .contenedor-input label {
+        font-size: 0.8em;
+    }
+
+    .contenedor-input input {
+        font-size: 0.8em;
+        padding: 0 30px 0 5px; /* Ajusta el padding para el icono */
+    }
+
+    .contenedor-input .icono {
+        font-size: 1.1em;
+        line-height: 50px; /* Ajusta line-height para el icono si es necesario */
+    }
+
+    .recordar {
+        font-size: 0.75em;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: -10px 0 10px;
+    }
+
+    .recordar a {
+        margin-top: 5px;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+    .registrar {
+        font-size: 0.8em;
+    }
 }
