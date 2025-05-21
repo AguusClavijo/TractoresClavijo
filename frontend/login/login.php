@@ -18,7 +18,10 @@
       <a href="../about/about.php">Informacion</a>
       <a href="../tractors/tractors.php">Tractores</a>
       <a href="../contact/contact.php">Contactos</a>
-      <button class="btn" id="loginBtn">Iniciar Sesión</button> </nav>
+      <a href="../merch/merch.php">Merch</a>
+      <button class="btn" id="loginBtn">Iniciar Sesión</button>
+      <button class="btn" id="cartBtn"><i class="fa-solid fa-cart-shopping"></i></button>
+    </nav>
     <div class="menu-toggle" id="menuToggle"> <i class="fa-solid fa-bars"></i>
     </div>
   </header>

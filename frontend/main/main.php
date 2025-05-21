@@ -36,7 +36,13 @@
               <a class="nav-link" href="../contact/contact.php">Contacto</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="../merch/merch.php">Merch</a>
+            </li>
+            <li class="nav-item">
               <a class="btn btn-login" href="../login/login.php">Iniciar Sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-cart" href="../cart/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
             </li>
           </ul>
         </div>
