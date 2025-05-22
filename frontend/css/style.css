@@ -168,6 +168,41 @@ footer small {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.navbar-custom .btn-user-dropdown {
+    /* Estilos similares al btn-login o como prefieras */
+    background-color: transparent; /* O var(--light-green-accent) */
+    border: 1px solid var(--light-green-accent);
+    color: var(--light-green-accent); /* O var(--light-text) */
+    padding: 0.375rem 1rem;
+    border-radius: 20px; /* O 4px si quieres rectangular */
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.navbar-custom .btn-user-dropdown:hover,
+.navbar-custom .btn-user-dropdown:focus { /* :focus para cuando el dropdown está abierto */
+    background-color: var(--light-green-accent);
+    color: var(--light-text);
+    border-color: var(--light-green-accent);
+}
+
+.navbar-custom .dropdown-menu { /* Estilo para el menú desplegable */
+    background-color: var(--primary-green); /* O un color más oscuro */
+    border: 1px solid rgba(0,0,0,0.15);
+}
+.navbar-custom .dropdown-item {
+    color: rgba(255,255,255,0.8);
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    color: #fff;
+    background-color: var(--light-green-accent);
+}
+.navbar-custom .dropdown-divider {
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
 @media (max-width: 991.98px) {
   .navbar-custom .navbar-nav {
     text-align: center;

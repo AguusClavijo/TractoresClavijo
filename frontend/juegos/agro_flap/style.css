@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #70c5ce; /* Color cielo Flappy Bird */
+    overflow: hidden; /* Evitar scrollbars */
+    font-family: 'Arial', sans-serif; /* O una fuente pixelada */
+}
+
+#game-container {
+    position: relative;
+    border: 2px solid #000;
+    overflow: hidden; /* Para que los elementos no se salgan */
+}
+
+#gameCanvas {
+    display: block; /* Canvas es inline por defecto */
+    background-color: #70c5ce; /* Color de fondo del canvas */
+}
+
+#score-display {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+    z-index: 10;
+    display: none; /* Se muestra al iniciar el juego */
+}
+
+#start-screen, #game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(222, 216, 149, 0.9); /* Color de fondo de menús */
+    padding: 30px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 20;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+}
+
+#start-screen h1, #game-over-screen h2 {
+    font-size: 2.5em;
+    color: #543847; /* Color de texto de títulos */
+    margin-bottom: 20px;
+}
+#start-screen p, #game-over-screen p {
+    font-size: 1.2em;
+    color: #543847;
+    margin-bottom: 15px;
+}
+
+
+#startButton, #restartButton {
+    background-color: #ff8c00; /* Naranja */
+    color: white;
+    border: 2px solid #543847;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0px #543847;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#startButton:active, #restartButton:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+
+/* ESTILOS PARA LA EXPLOSIÓN */
+#explosion-container {
+    position: absolute; /* Se posicionará con JS */
+    width: 100px; /* Ajusta al tamaño de tu sprite/imagen de explosión */
+    height: 100px; /* Ajusta al tamaño de tu sprite/imagen de explosión */
+    overflow: hidden;
+    z-index: 50; /* Encima de todo */
+    pointer-events: none; /* Para que no interfiera con clics */
+    display: none; /* Inicialmente oculto */
+}
+
+#explosion-sprite {
+    /* Si usas un sprite sheet, necesitarás animarlo con JS cambiando background-position */
+    /* Si es un GIF, solo necesitas mostrarlo */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Opcional: Si usas un sprite sheet para la explosión */
+/*
+#explosion-sprite {
+    width: calc(SPRITE_SHEET_ANCHO_TOTAL / NUMERO_DE_FRAMES_HORIZONTALES);
+    height: calc(SPRITE_SHEET_ALTO_TOTAL / NUMERO_DE_FRAMES_VERTICALES);
+    background-image: url('explosion_spritesheet.png');
+    background-repeat: no-repeat;
+    animation: explode 0.5s steps(NUMERO_TOTAL_DE_FRAMES_EN_LA_ANIMACION) forwards;
+}
+
+@keyframes explode {
+    0% { background-position: 0 0; }
+    100% { background-position: -ANCHO_TOTAL_DEL_SPRITE_SHEET_PARA_LA_ANIMACION 0; } 
+    // Ajusta esto según cómo esté organizado tu sprite sheet
+}
+*/

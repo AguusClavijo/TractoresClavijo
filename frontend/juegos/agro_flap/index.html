@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>Flappy Tractor Boom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <canvas id="gameCanvas"></canvas>
+      <div id="score-display">0</div>
+      <div id="start-screen">
+        <h1>Flappy Tractor</h1>
+        <button id="startButton">START</button>
+        <p id="best-score-start">Mejor: 0</p>
+      </div>
+      <div id="game-over-screen" style="display: none">
+        <h2>GAME OVER</h2>
+        <p>Puntuación: <span id="final-score">0</span></p>
+        <p>Mejor: <span id="best-score-gameover">0</span></p>
+        <button id="restartButton">REINTENTAR</button>
+      </div>
+    </div>
+    <div id="explosion-container" style="display: none">
+      <img id="explosion-sprite" src="img/explosion.png" alt="Explosion" />
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+/* frontend/perfil/perfil.css */
+/* Los estilos base y del header/footer vienen de ../css/style.css */
+
+body.page-background { /* Opcional, para un fondo general en páginas de cuenta */
+    background-color: #f4f7f6;
+}
+
+.page-main-content { /* Para asegurar padding del header si no se usa la clase de main de otras páginas */
+    padding-top: var(--navbar-height, 70px);
+    min-height: calc(100vh - var(--footer-height, 200px) - var(--navbar-height, 70px));
+}
+
+.page-title {
+    color: var(--primary-green, #2E7D32);
+    font-weight: 600;
+    text-align: center;
+}
+
+.profile-card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.profile-card .card-title {
+    color: var(--primary-green, #2E7D32);
+    font-weight: 500;
+}
+
+.profile-card .card-body p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: #454545;
+}
+.profile-card .card-body p strong {
+    color: #333;
+    min-width: 150px; /* Para alinear un poco los valores */
+    display: inline-block;
+}
+
+.profile-card address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 767px) {
+    .profile-card .card-body p strong {
+        min-width: auto;
+        display: block;
+        margin-bottom: 0.2rem;
+    }
+    .page-title {
+        font-size: 1.8rem;
+    }
+}

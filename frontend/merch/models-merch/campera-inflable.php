@@ -1,45 +1,121 @@
+<?php
+session_start(); // ¡MUY IMPORTANTE! Debe ser la primera línea.
+
+// Lógica para $project_root_segment (para construir URLs)
+// Esta lógica asume una estructura de carpetas. AJUSTA 'TractoresClavijo' si el nombre de tu carpeta raíz es diferente.
+$script_path_parts = explode('/', dirname($_SERVER['PHP_SELF']));
+$project_root_folder_name_in_htdocs = 'TractoresClavijo'; // <--- ¡¡¡CAMBIA ESTO SI ES NECESARIO!!!
+$project_root_segment = "";
+$path_index = array_search($project_root_folder_name_in_htdocs, $script_path_parts);
+
+if ($path_index !== false) {
+    for ($i = 1; $i <= $path_index; $i++) {
+        $project_root_segment .= "/" . $script_path_parts[$i];
+    }
+} else if (empty($script_path_parts[1])) {
+    $project_root_segment = "";
+}
+// Si la detección automática falla, puedes forzarlo:
+// $project_root_segment = "/TractoresClavijo"; // Descomenta y ajusta si es necesario
+
+
+// Calcular el contador del carrito desde la sesión
+$cart_count = 0;
+if (isset($_SESSION['carrito']) && is_array($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $item_cart_count) {
+        if (isset($item_cart_count['cantidad'])) {
+            $cart_count += $item_cart_count['cantidad'];
+        }
+    }
+}
+
+// --- DATOS ESPECÍFICOS DE ESTE PRODUCTO ---
+$id_producto_actual = 7; // ID para "Campera Inflable"
+$nombre_producto_actual = "Campera Inflable";
+$precio_producto_actual_display = "90.000";
+$imagen_producto_actual = "../img/7.png";   // Ruta relativa a la carpeta 'merch/'
+$descripcion_producto_lead = "Ligereza y calidez para los días fríos.";
+$descripcion_larga_producto = "Esta campera inflable combina ligereza y calidez, ideal para protegerte del frío sin sacrificar la movilidad. Con su diseño moderno y el logo de Tractores Clavijo, es perfecta para cualquier aventura.";
+$caracteristicas_producto = [
+    "Material: Nylon resistente al agua y plumón sintético aislante.",
+    "Peso: Ultraligera y compresible, fácil de guardar.",
+    "Características: Capucha ajustable y puños elásticos.",
+    "Estilo: Diseño contemporáneo, con logo discreto."
+];
+$talles_disponibles_para_este_producto = ["S", "M", "L", "XL", "XXL"]; // Los mismos talles que el buzo
+// --- FIN DATOS ESPECÍFICOS ---
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campera Inflable - Tractores Clavijo</title>
-
+    <title><?php echo htmlspecialchars($nombre_producto_actual); ?> - Tractores Clavijo</title>
+    <link rel="icon" href="<?php echo $project_root_segment; ?>/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $project_root_segment; ?>/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="../../css/contact.css" />
-    <link rel="stylesheet" href="../merch.css" />  <link rel="stylesheet" href="campera-inflable.css" />   </head>
-<body class="merch-page"> <header>
+    <link rel="stylesheet" href="../merch.css" />
+    <link rel="stylesheet" href="campera-inflable.css" />
+</head>
+
+<body class="merch-page product-detail-page">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
             <div class="container">
-                <a class="navbar-brand" href="../../main/main.php">Tractores Clavijo</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="<?php echo $project_root_segment; ?>/frontend/main/main.php">Tractores Clavijo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavProductPage" aria-controls="navbarNavProductPage" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavProductPage">
+                    <ul class="navbar-nav align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../main/main.php">Inicio</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'main.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/main/main.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../about/about.php">Sobre Nosotros</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'about.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/about/about.php">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../tractors/tractors.php">Tractores</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'tractors.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/tractors/tractors.php">Tractores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../contact/contact.php">Contacto</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'contact.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/contact/contact.php">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../merch.php">Merch</a> </li>
-                        <li class="nav-item">
-                            <a class="btn btn-login" href="../../login/login.php">Iniciar Sesión</a>
+                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'merch.php') !== false || strpos($_SERVER['PHP_SELF'], 'campera-inflable.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/merch/merch.php">Merch</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-cart" href="../../cart/cart.php"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                        <?php if (isset($_SESSION['user_id'])): ?>
+                            <li class="nav-item dropdown ms-lg-3">
+                                <a class="nav-link dropdown-toggle btn btn-user-dropdown" href="#" id="navbarUserDropdownCamperaI" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hola, <?php echo htmlspecialchars($_SESSION['user_nombre']); ?> <i class="bi bi-person-circle ms-1"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUserDropdownCamperaI">
+                                    <li><a class="dropdown-item" href="../../perfil/perfil.php">Mi Perfil</a></li>
+                                    <li><a class="dropdown-item" href="../../pedidos/mis_pedidos.php">Mis Pedidos</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="<?php echo $project_root_segment; ?>/backend/php/logout.php">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item ms-lg-3">
+                                <a class="btn btn-login" href="<?php echo $project_root_segment; ?>/frontend/login/login.php">Iniciar Sesión</a>
+                            </li>
+                        <?php endif; ?>
+
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-cart <?php echo ($cart_count > 0 ? 'cart-has-items' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/cart/cart.php">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <?php if ($cart_count > 0): ?>
+                                    <span class="badge bg-danger ms-1 cart-count-badge"><?php echo $cart_count; ?></span>
+                                <?php endif; ?>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -47,67 +123,81 @@
         </nav>
     </header>
 
-    <main style="padding-top: var(--navbar-height);">
+    <main style="padding-top: var(--navbar-height, 70px);">
 
         <section class="merch-header">
             <div class="container">
-                <h1>Campera de Campo Inflable</h1>
-                <p class="lead">Ligereza y calidez para los días fríos.</p>
+                <h1><?php echo htmlspecialchars($nombre_producto_actual); ?></h1>
+                <p class="lead"><?php echo htmlspecialchars($descripcion_producto_lead); ?></p>
             </div>
         </section>
 
         <section class="merch-products-section">
             <div class="container product-detail-container">
+
+                <?php if (isset($_SESSION['cart_message'])): ?>
+                    <div class="alert alert-<?php echo htmlspecialchars($_SESSION['cart_message_type'] ?? 'info'); ?> alert-dismissible fade show mb-4" role="alert">
+                        <?php echo htmlspecialchars($_SESSION['cart_message']); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php unset($_SESSION['cart_message']);
+                    unset($_SESSION['cart_message_type']); ?>
+                <?php endif; ?>
+
                 <div class="row">
                     <div class="col-lg-6 col-md-12 product-detail-image">
                         <div class="main-image-wrapper">
-                            <img src="../img/7.png" alt="Campera Inflable Tractores Clavijo" class="img-fluid product-detail-main-img">
+                            <img src="<?php echo htmlspecialchars($imagen_producto_actual); ?>" alt="<?php echo htmlspecialchars($nombre_producto_actual); ?> Tractores Clavijo" class="img-fluid product-detail-main-img">
                         </div>
                         <div class="thumbnail-images mt-3 d-flex justify-content-center">
-                            <img src="../img/7.png" alt="Miniatura Campera Inflable" class="thumbnail-img active">
-                            </div>
+                            <img src="<?php echo htmlspecialchars($imagen_producto_actual); ?>" alt="Miniatura <?php echo htmlspecialchars($nombre_producto_actual); ?>" class="thumbnail-img active">
+                        </div>
                     </div>
 
                     <div class="col-lg-6 col-md-12 product-detail-info">
-                        <h2 class="product-detail-title">Campera Inflable Ultraligera</h2>
-                        <p class="product-detail-price">$90.000 ARS</p>
+                        <h2 class="product-detail-title"><?php echo htmlspecialchars($nombre_producto_actual); ?> Ultraligera</h2>
+                        <p class="product-detail-price">$<?php echo htmlspecialchars($precio_producto_actual_display); ?> ARS</p>
 
                         <div class="product-detail-description">
-                            <p>Esta campera inflable combina ligereza y calidez, ideal para protegerte del frío sin sacrificar la movilidad. Con su diseño moderno y el logo de Tractores Clavijo, es perfecta para cualquier aventura.</p>
-                            <ul>
-                                <li>Material: Nylon resistente al agua y plumón sintético aislante.</li>
-                                <li>Peso: Ultraligera y compresible, fácil de guardar.</li>
-                                <li>Características: Capucha ajustable y puños elásticos.</li>
-                                <li>Estilo: Diseño contemporáneo, con logo discreto.</li>
-                            </ul>
+                            <p><?php echo htmlspecialchars($descripcion_larga_producto); ?></p>
+                            <?php if (!empty($caracteristicas_producto)): ?>
+                                <ul>
+                                    <?php foreach ($caracteristicas_producto as $caracteristica): ?>
+                                        <li><?php echo htmlspecialchars($caracteristica); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
                         </div>
 
-                        <div class="product-options mt-4">
-                            <div class="mb-3 product-option-item">
-                                <label for="size" class="form-label">Talle:</label>
-                                <select class="form-select" id="size">
-                                    <option selected disabled>Seleccione un talle</option>
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                    <option>XXL</option>
-                                </select>
-                            </div>
-                            <div class="mb-3 product-option-item">
-                                <label for="quantity" class="form-label">Cantidad:</label>
-                                <input type="number" class="form-control" id="quantity" value="1" min="1">
-                            </div>
-                        </div>
+                        <form action="../../../backend/php/cart_handler.php" method="POST" class="mt-4">
+                            <input type="hidden" name="id_producto" value="<?php echo $id_producto_actual; ?>">
 
-                        <div class="product-actions mt-5">
-                            <button class="btn btn-success btn-lg me-2">
-                                <i class="fa-solid fa-cart-plus me-2"></i>Añadir al Carrito
-                            </button>
-                            <a href="../merch.php" class="btn btn-outline-secondary btn-lg">
-                                <i class="fa-solid fa-arrow-left me-2"></i>Volver a Merch
-                            </a>
-                        </div>
+                            <?php if (!empty($talles_disponibles_para_este_producto)): ?>
+                                <div class="mb-3 product-option-item">
+                                    <label for="size_<?php echo $id_producto_actual; ?>" class="form-label">Talle:</label>
+                                    <select class="form-select" id="size_<?php echo $id_producto_actual; ?>" name="size_seleccionado">
+                                        <option value="" selected disabled>Seleccione un talle</option>
+                                        <?php foreach ($talles_disponibles_para_este_producto as $talle): ?>
+                                            <option value="<?php echo htmlspecialchars($talle); ?>"><?php echo htmlspecialchars($talle); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="mb-3 product-option-item">
+                                <label for="quantity_<?php echo $id_producto_actual; ?>" class="form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="quantity_<?php echo $id_producto_actual; ?>" name="quantity" value="1" min="1" max="99">
+                            </div>
+
+                            <div class="product-actions mt-4">
+                                <button type="submit" name="add_to_cart_submit" class="btn btn-success btn-lg me-2 add-to-cart-btn">
+                                    <i class="fa-solid fa-cart-plus me-2"></i>Añadir al Carrito
+                                </button>
+                                <a href="../merch.php" class="btn btn-outline-secondary btn-lg">
+                                    <i class="fa-solid fa-arrow-left me-2"></i>Volver a Merch
+                                </a>
+                            </div>
+                        </form>
 
                         <div class="delivery-info mt-4 pt-3 border-top">
                             <p><i class="fa-solid fa-truck-fast me-2"></i>Envío rápido a todo el país.</p>
@@ -126,8 +216,8 @@
                 <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
                     <h5>Tractores Clavijo</h5>
                     <p>Conecte con nosotros en nuestras redes sociales y manténgase al día con las últimas novedades.</p>
-                    <a href="https://www.instagram.com/tractores.clavijo/" target="_blank" class="d-block text-decoration-none mb-2">
-                        <i class="bi bi-instagram"></i> @tractores.clavijo
+                    <a href="https://www.instagram.com/tractoresclavijo_" target="_blank" class="d-block text-decoration-none mb-2">
+                        <i class="bi bi-instagram"></i> @tractoresclavijo_
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=100089567695602" target="_blank" class="d-block text-decoration-none">
                         <i class="bi bi-facebook"></i> Tractores Clavijo
@@ -144,11 +234,11 @@
                 <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
                     <h5>Enlaces Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li><a href="../../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
+                        <li><a href="../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
                         <li><a href="../../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
-                        <li><a href="../../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-                        <li><a href="../../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
+                        <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
                         <li><a href="../../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li>
+                        <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -160,4 +250,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
