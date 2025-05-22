@@ -96,8 +96,8 @@
         <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
           <h5>Tractores Clavijo</h5>
           <p>Conecte con nosotros en nuestras redes sociales y manténgase al día con las últimas novedades.</p>
-          <a href="https://www.instagram.com/tractoresclavijo_" target="_blank" class="d-block text-decoration-none mb-2">
-            <i class="bi bi-instagram"></i> @tractoresclavijo_
+          <a href="https://www.instagram.com/tractores.clavijo/" target="_blank" class="d-block text-decoration-none mb-2">
+            <i class="bi bi-instagram"></i> @tractores.clavijo
           </a>
           <a href="https://www.facebook.com/profile.php?id=100089567695602" target="_blank" class="d-block text-decoration-none">
             <i class="bi bi-facebook"></i> Tractores Clavijo
@@ -117,8 +117,8 @@
             <li><a href="#"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
             <li><a href="../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
             <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-            <li><a href="#"><i class="bi bi-caret-right-fill"></i> Repuestos</a></li>
             <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
+            <li><a href="../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li> 
           </ul>
         </div>
       </div>

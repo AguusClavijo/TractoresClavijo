@@ -10,7 +10,7 @@ body.tractors-page {
 
 /* Estilos para el encabezado, ajustados a los de contact.css y merch.css */
 .tractors-header {
-    background-color: #2E7D32;
+    background-color: var(--primary-green);
     color: var(--light-text);
     padding: 4rem 1rem;
     text-align: center;

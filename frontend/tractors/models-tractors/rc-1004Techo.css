@@ -1,0 +1,538 @@
+/* ======================== IMPORTACIONES DE FUENTES E ICONOS (como en style.css) ======================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* ======================== VARIABLES CSS (copiadas de style.css) ======================== */
+:root {
+    --primary-green: #2E7D32;
+    --light-green-accent: #4CAF50;
+    --dark-text: #333333;
+    --light-text: #f8f9fa;
+    --navbar-height: 60px;
+    --dark-bg: #131212; /* Ajustado de tractors.css, similar a contact.css */
+    --border-color: #333; /* Usado en footer y product-card */
+}
+
+/* ======================== ESTILOS BASE (copiados de style.css y tractors.css) ======================== */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 16px;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+
+/* ======================== ESTILOS DEL HEADER (NAVBAR) ======================== */
+
+.navbar-custom {
+    background-color: var(--primary-green);
+    min-height: var(--navbar-height);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--light-text);
+    user-select: none;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    margin-left: 15px;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-link.active {
+    color: var(--light-text);
+}
+
+.navbar-custom .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--light-green-accent);
+    transition: all 0.3s ease-out;
+    transform: translateX(-50%);
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after,
+.navbar-custom .navbar-nav .nav-link.active::after {
+    width: 70%;
+}
+
+.navbar-custom .btn-login {
+    background-color: transparent;
+    border: 2px solid var(--light-green-accent);
+    color: var(--light-green-accent);
+    font-weight: 600;
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.navbar-custom .btn-login:hover {
+    background-color: var(--light-green-accent);
+    color: var(--light-text);
+    border-color: var(--light-green-accent);
+}
+
+.navbar-custom .btn-cart {
+    background-color: transparent;
+    color: var(--light-green-accent);
+    border: 2px solid var(--light-green-accent);
+    padding: 0.375rem 0.8rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.navbar-custom .btn-cart:hover {
+    background-color: var(--light-green-accent);
+    color: var(--light-text);
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Sección de encabezado de la página (tractors-header) */
+.tractors-header {
+    background-color: var(--primary-green);
+    color: var(--light-text);
+    padding: 4rem 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    margin-top: var(--navbar-height);
+}
+
+.tractors-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tractors-header p.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ======================== ESTILOS DEL HOVER PARA TARJETAS DE PRODUCTO ======================== */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    height: 100%;
+    border: 1px solid var(--primary-green);
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-img-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    background-color: transparent;
+}
+
+.product-card img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+    border-radius: 8px 8px 0 0;
+}
+
+.product-card:hover img {
+    transform: scale(1.02);
+}
+
+.product-info {
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    background-color: var(--primary-green);
+    border-radius: 0 0 8px 8px;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 0;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--light-text);
+    margin-top: 0.5rem;
+}
+
+/* Pseudoelemento ::before para el overlay oscuro */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Pseudoelemento ::after para la flecha */
+.product-card::after {
+    content: "\f138";
+    font-family: "bootstrap-icons";
+    font-size: 3rem;
+    color: var(--light-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Estado de hover en la tarjeta: el overlay y la flecha aparecen y se animan */
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-card:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+/* ======================== ESTILOS DE LA SECCIÓN DE DETALLES DEL PRODUCTO ======================== */
+.product-details-section {
+    background-color: #212529; /* Fondo oscuro similar al de la imagen */
+    color: var(--light-text);
+    padding: 3rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3rem; /* Espacio antes de la sección de productos relacionados */
+}
+
+.product-main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+    padding: 10px; /* Pequeño padding dentro del contenedor para que la imagen no toque los bordes */
+}
+
+.product-specs-container {
+    padding: 2rem;
+}
+
+.specs-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-green); /* Color verde para el título como en la imagen */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.specs-list {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.specs-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.8); /* Texto ligeramente más claro */
+    line-height: 1.5; /* Increased line-height for better spacing */
+    padding-left: 1.8rem; /* Increased padding for the text after the icon */
+    position: relative;
+    min-height: 1.5em; /* Ensure enough height for the icon and text */
+    display: flex; /* Use flexbox for better vertical alignment */
+    align-items: flex-start; /* Align items to the start of the cross-axis */
+}
+
+.specs-list li::before {
+    content: "\f058"; /* Check-circle icon from Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900; /* For solid icon */
+    color: var(--light-green-accent);
+    position: absolute; /* Keep absolute for precise positioning relative to li */
+    left: 0;
+    top: 0.1em; /* Adjust based on line-height */
+    font-size: 0.9em;
+    line-height: 1; /* Reset line-height for the icon itself */
+}
+
+.pdf-section {
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.pdf-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.pdf-model {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+/* ESTILOS DEL BOTÓN "VER PDF" CORREGIDOS para que sea transparente con contorno verde */
+.btn-download-pdf {
+    background-color: var(--dark-bg); /* Fondo igual que el background del body */
+    border: 2px solid var(--primary-green); /* Borde verde */
+    color: var(--primary-green); /* Texto verde */
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none; /* Asegura que no tenga subrayado */
+}
+
+.btn-download-pdf:hover {
+    background-color: var(--primary-green); /* Fondo verde al pasar el mouse */
+    color: var(--light-text); /* Texto blanco al pasar el mouse */
+    border-color: var(--primary-green);
+}
+
+
+/* ======================== ESTILOS DEL FOOTER (Copiado de style.css) ======================== */
+
+footer.footer-custom {
+    background-color: #212529;
+    color: var(--light-text);
+    padding: 50px 0;
+    font-size: 0.9rem;
+}
+
+footer.footer-custom h5 {
+    color: var(--light-green-accent);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer.footer-custom p, footer.footer-custom address, footer.footer-custom li {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+footer.footer-custom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer.footer-custom a:hover {
+    color: var(--light-green-accent);
+}
+
+footer.footer-custom .bi, footer.footer-custom .fab {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+footer.footer-custom .border-top {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer.footer-custom small {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ======================== MEDIA QUERIES (Copiadas de style.css y tractors.css) ======================== */
+
+@media (max-width: 991.98px) {
+    .navbar-custom .navbar-nav {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        margin-left: 0;
+        padding: 10px 15px;
+    }
+    .navbar-custom .navbar-nav .nav-link::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .navbar-custom .btn-login {
+        margin-top: 10px;
+        margin-left: 0;
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar-custom .btn-cart {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: fit-content;
+    }
+
+    /* Footer adjustments */
+    footer.footer-custom .row > div {
+        text-align: center !important;
+        margin-bottom: 30px;
+    }
+    footer.footer-custom .row > div:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Product card adjustments */
+    .col-md-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .product-title {
+        font-size: 0.95rem;
+    }
+    .product-card::after {
+        font-size: 2rem;
+    }
+
+    /* Product details section adjustments */
+    .product-main-image {
+        max-height: 400px; /* Limita la altura en pantallas medianas */
+    }
+    .product-specs-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .navbar-custom .navbar-brand {
+        font-size: 1.6rem;
+    }
+    /* Tractors header adjustments */
+    .tractors-header h1 {
+        font-size: 2.2rem;
+    }
+    .tractors-header p.lead {
+        font-size: 1.1rem;
+    }
+    /* Product card adjustments */
+    .col {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    .product-item-wrapper {
+        padding: 0 15px;
+    }
+    .product-title {
+        font-size: 1.05rem;
+    }
+    .product-card::after {
+        font-size: 1.8rem;
+    }
+
+    /* Product details section adjustments */
+    .product-main-image {
+        max-height: 300px; /* Limita la altura en pantallas pequeñas */
+    }
+    .product-specs-container {
+        padding: 1rem;
+    }
+    .specs-title {
+        font-size: 1.5rem;
+    }
+    .specs-list li {
+        font-size: 1rem;
+    }
+    .btn-download-pdf {
+        width: 100%; /* Botón PDF ocupa todo el ancho en móviles */
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Product card adjustments */
+    .product-card {
+        padding: 1rem;
+    }
+    .product-title {
+        font-size: 0.85rem;
+    }
+    .product-card::after {
+        font-size: 1.5rem;
+    }
+    /* Product details section adjustments */
+    .product-main-image {
+        max-height: 250px;
+    }
+}

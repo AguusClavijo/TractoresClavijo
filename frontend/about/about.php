@@ -144,42 +144,42 @@
     </main>
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Tractores Clavijo</h5>
-                    <p>Conecte con nosotros en nuestras redes sociales y manténgase al día con las últimas novedades.</p>
-                    <a href="https://www.instagram.com/tractoresclavijo_" target="_blank" class="d-block text-decoration-none mb-2">
-                        <i class="bi bi-instagram"></i> @tractoresclavijo_
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100089567695602" target="_blank" class="d-block text-decoration-none">
-                        <i class="bi bi-facebook"></i> Tractores Clavijo
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Ubicación</h5>
-                    <address>
-                        Carril Santos Lugares Ingeniero Giagnoni<br>
-                        Mendoza - ARGENTINA<br>
-                        <i class="bi bi-telephone-fill"></i> Teléfono: 0263 452-6714
-                    </address>
-                </div>
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
-                        <li><a href="#"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
-                        <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-                        <li><a href="#"><i class="bi bi-caret-right-fill"></i> Repuestos</a></li>
-                        <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center border-top pt-3 mt-4">
-                <small>© <?php echo date("Y"); ?> Tractores Clavijo - Todos los derechos reservados</small>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Tractores Clavijo</h5>
+          <p>Conecte con nosotros en nuestras redes sociales y manténgase al día con las últimas novedades.</p>
+          <a href="https://www.instagram.com/tractores.clavijo/" target="_blank" class="d-block text-decoration-none mb-2">
+            <i class="bi bi-instagram"></i> @tractores.clavijo
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100089567695602" target="_blank" class="d-block text-decoration-none">
+            <i class="bi bi-facebook"></i> Tractores Clavijo
+          </a>
         </div>
-    </footer>
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Ubicación</h5>
+          <address>
+            Carril Santos Lugares Ingeniero Giagnoni<br>
+            Mendoza - ARGENTINA<br>
+            <i class="bi bi-telephone-fill"></i> Teléfono: 0263 452-6714
+          </address>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
+            <li><a href="../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
+            <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
+            <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
+            <li><a href="../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li> 
+          </ul>
+        </div>
+      </div>
+      <div class="text-center border-top pt-3 mt-4">
+        <small>© <?php echo date("Y"); ?> Tractores Clavijo - Todos los derechos reservados</small>
+      </div>
+    </div>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

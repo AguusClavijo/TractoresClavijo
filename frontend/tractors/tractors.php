@@ -26,28 +26,28 @@
     // Definición del array de tractores
     // Las rutas de 'src' son relativas a la carpeta 'tractors' (donde está tractors.php)
     // Las rutas de 'pagina' son ahora relativas a la carpeta 'tractors' también, porque 'models-tractors' está dentro.
+    // CORRECTION: Assuming 'models-tractors' is a sibling directory to 'tractors' or at the web root,
+    // the paths need to be adjusted to go up one level or be absolute from the root.
+    // Given the common "mal" redirection issue, prepending '../' is a common fix if the directory structure is flat.
     $tractores = [
-        ['id' => 'tractor1', 'src' => 'fotos/1.jpg', 'alt' => 'Tractor RA 254', 'modelo' => 'RA 254', 'hp' => '25 HP', 'pagina' => 'models-tractors/ra-254.php'],
-        ['id' => 'tractor2', 'src' => 'fotos/2.jpg', 'alt' => 'Tractor RD 304', 'modelo' => 'RD 304', 'hp' => '30 HP', 'pagina' => 'models-tractors/rd-304.php'],
-        ['id' => 'tractor3', 'src' => 'fotos/3.jpg', 'alt' => 'Tractor RD 404', 'modelo' => 'RD 404', 'hp' => '40 HP', 'pagina' => 'models-tractors/rd-404.php'],
-        ['id' => 'tractor4', 'src' => 'fotos/4.jpg', 'alt' => 'Tractor RK 454', 'modelo' => 'RK 454', 'hp' => '45 HP', 'pagina' => 'models-tractors/rk-454.php'],
-        ['id' => 'tractor5', 'src' => 'fotos/5.jpg', 'alt' => 'Tractor RA 504', 'modelo' => 'RA 504', 'hp' => '50 HP', 'pagina' => 'models-tractors/ra-504.php'],
-        ['id' => 'tractor6', 'src' => 'fotos/6.jpg', 'alt' => 'Tractor RA 504-F', 'modelo' => 'RA 504-F', 'hp' => '50 HP', 'pagina' => 'models-tractors/ra-504-f.php'],
-        ['id' => 'tractor7', 'src' => 'fotos/7.jpg', 'alt' => 'Tractor RD 504', 'modelo' => 'RD 504', 'hp' => '50 HP', 'pagina' => 'models-tractors/rd-504.php'],
-        ['id' => 'tractor8', 'src' => 'fotos/8.jpg', 'alt' => 'Tractor RK 504 CON TECHO', 'modelo' => 'RK 504 CON TECHO', 'hp' => '50 HP', 'pagina' => 'models-tractors/rk-504-techo.php'],
-        ['id' => 'tractor9', 'src' => 'fotos/9.jpg', 'alt' => 'Tractor RK 504 CON CABINA', 'modelo' => 'RK 504 CON CABINA', 'hp' => '50 HP', 'pagina' => 'models-tractors/rk-504-cabina.php'],
-        ['id' => 'tractor10', 'src' => 'fotos/10.jpg', 'alt' => 'Tractor RA 704', 'modelo' => 'RA 704', 'hp' => '70 HP', 'pagina' => 'models-tractors/ra-704.php'],
-        ['id' => 'tractor11', 'src' => 'fotos/11.jpg', 'alt' => 'Tractor RK 704 CON TECHO', 'modelo' => 'RK 704 CON TECHO', 'hp' => '70 HP', 'pagina' => 'models-tractors/rk-704-techo.php'],
-        ['id' => 'tractor12', 'src' => 'fotos/12.jpg', 'alt' => 'Tractor RK 704 CON CABINA', 'modelo' => 'RK 704 CON CABINA', 'hp' => '70 HP', 'pagina' => 'models-tractors/rk-704-cabina.php'],
-        ['id' => 'tractor13', 'src' => 'fotos/13.jpg', 'alt' => 'Tractor RK 754 CON TECHO', 'modelo' => 'RK 754 CON TECHO', 'hp' => '75 HP', 'pagina' => 'models-tractors/rk-754-techo.php'],
-        ['id' => 'tractor14', 'src' => 'fotos/14.jpg', 'alt' => 'Tractor RK 754 CON CABINA', 'modelo' => 'RK 754 CON CABINA', 'hp' => '75 HP', 'pagina' => 'models-tractors/rk-754-cabina.php'],
-        ['id' => 'tractor15', 'src' => 'fotos/15.jpg', 'alt' => 'Tractor RK 904 CON TECHO', 'modelo' => 'RK 904 CON TECHO', 'hp' => '90 HP', 'pagina' => 'models-tractors/rk-904-techo.php'],
-        ['id' => 'tractor16', 'src' => 'fotos/16.jpg', 'alt' => 'Tractor RK 904 CON CABINA', 'modelo' => 'RK 904 CON CABINA', 'hp' => '90 HP', 'pagina' => 'models-tractors/rk-904-cabina.php'],
-        ['id' => 'tractor17', 'src' => 'fotos/17.jpg', 'alt' => 'Tractor RC 1004 CON TECHO', 'modelo' => 'RC 1004 CON TECHO', 'hp' => '100 HP', 'pagina' => 'models-tractors/rc-1004-techo.php'],
-        ['id' => 'tractor18', 'src' => 'fotos/18.jpg', 'alt' => 'Tractor RC 1004 CON CABINA', 'modelo' => 'RC 1004 CON CABINA', 'hp' => '100 HP', 'pagina' => 'models-tractors/rc-1004-cabina.php'],
-        ['id' => 'tractor19', 'src' => 'fotos/19.jpg', 'alt' => 'Tractor RC 1104 CON TECHO', 'modelo' => 'RC 1104 CON TECHO', 'hp' => '110 HP', 'pagina' => 'models-tractors/rc-1104-techo.php'],
-        ['id' => 'tractor20', 'src' => 'fotos/20.jpg', 'alt' => 'Tractor RC 1104 CON CABINA', 'modelo' => 'RC 1104 CON CABINA', 'hp' => '110 HP', 'pagina' => 'models-tractors/rc-1104-cabina.php'],
-        ['id' => 'tractor21', 'src' => 'fotos/21.jpg', 'alt' => 'Tractor RC 1404', 'modelo' => 'RC 1404', 'hp' => '140 HP', 'pagina' => 'models-tractors/rc-1404.php'],
+        ['id' => 'tractor1', 'src' => 'fotos/1.jpg', 'alt' => 'Tractor RA 254', 'modelo' => 'RA 254', 'hp' => '25 HP', 'pagina' => '../tractors/models-tractors/ra-254.php'],
+        ['id' => 'tractor2', 'src' => 'fotos/2.jpg', 'alt' => 'Tractor RD 304', 'modelo' => 'RD 304', 'hp' => '30 HP', 'pagina' => '../tractors/models-tractors/rd-304.php'],
+        ['id' => 'tractor4', 'src' => 'fotos/4.jpg', 'alt' => 'Tractor RK 454', 'modelo' => 'RK 454', 'hp' => '45 HP', 'pagina' => '../tractors/models-tractors/rk-454.php'],
+        ['id' => 'tractor5', 'src' => 'fotos/5.jpg', 'alt' => 'Tractor RA 504', 'modelo' => 'RA 504', 'hp' => '58 HP', 'pagina' => '../tractors/models-tractors/ra-504.php'],
+        ['id' => 'tractor6', 'src' => 'fotos/6.jpg', 'alt' => 'Tractor RA 504-F', 'modelo' => 'RA 504-F', 'hp' => '58 HP', 'pagina' => '../tractors/models-tractors/ra-504-f.php'],
+        ['id' => 'tractor7', 'src' => 'fotos/7.jpg', 'alt' => 'Tractor RD 504', 'modelo' => 'RD 504', 'hp' => '58 HP', 'pagina' => '../tractors/models-tractors/rd-504.php'],
+        ['id' => 'tractor8', 'src' => 'fotos/8.jpg', 'alt' => 'Tractor RK 504 CON TECHO', 'modelo' => 'RK 504 CON TECHO', 'hp' => '58 HP', 'pagina' => '../tractors/models-tractors/rk-504Techo.php'],
+        ['id' => 'tractor9', 'src' => 'fotos/9.jpg', 'alt' => 'Tractor RK 504 CON CABINA', 'modelo' => 'RK 504 CON CABINA', 'hp' => '58 HP', 'pagina' => '../tractors/models-tractors/rk-504Cabina.php'],
+        ['id' => 'tractor10', 'src' => 'fotos/10.jpg', 'alt' => 'Tractor RA 704', 'modelo' => 'RA 704', 'hp' => '75 HP', 'pagina' => '../tractors/models-tractors/ra-704.php'],
+        ['id' => 'tractor11', 'src' => 'fotos/11.jpg', 'alt' => 'Tractor RK 704 CON TECHO', 'modelo' => 'RK 704 CON TECHO', 'hp' => '75 HP', 'pagina' => '../tractors/models-tractors/rk-704Techo.php'],
+        ['id' => 'tractor12', 'src' => 'fotos/12.jpg', 'alt' => 'Tractor RK 704 CON CABINA', 'modelo' => 'RK 704 CON CABINA', 'hp' => '75 HP', 'pagina' => '../tractors/models-tractors/rk-704Cabina.php'],
+        ['id' => 'tractor15', 'src' => 'fotos/15.jpg', 'alt' => 'Tractor RK 904 CON TECHO', 'modelo' => 'RK 904 CON TECHO', 'hp' => '92 HP', 'pagina' => '../tractors/models-tractors/rk-904Techo.php'],
+        ['id' => 'tractor16', 'src' => 'fotos/16.jpg', 'alt' => 'Tractor RK 904 CON CABINA', 'modelo' => 'RK 904 CON CABINA', 'hp' => '92 HP', 'pagina' => '../tractors/models-tractors/rk-904Cabina.php'],
+        ['id' => 'tractor17', 'src' => 'fotos/17.jpg', 'alt' => 'Tractor RC 1004 CON TECHO', 'modelo' => 'RC 1004 CON TECHO', 'hp' => '105 HP', 'pagina' => '../tractors/models-tractors/rc-1004Techo.php'],
+        ['id' => 'tractor18', 'src' => 'fotos/18.jpg', 'alt' => 'Tractor RC 1004 CON CABINA', 'modelo' => 'RC 1004 CON CABINA', 'hp' => '105 HP', 'pagina' => '../tractors/models-tractors/rc-1004Cabina.php'],
+        ['id' => 'tractor19', 'src' => 'fotos/19.jpg', 'alt' => 'Tractor RC 1104 CON TECHO', 'modelo' => 'RC 1104 CON TECHO', 'hp' => '115 HP', 'pagina' => '../tractors/models-tractors/rc-1104Techo.php'],
+        ['id' => 'tractor20', 'src' => 'fotos/20.jpg', 'alt' => 'Tractor RC 1104 CON CABINA', 'modelo' => 'RC 1104 CON CABINA', 'hp' => '115 HP', 'pagina' => '../tractors/models-tractors/rc-1104Cabina.php'],
+        ['id' => 'tractor21', 'src' => 'fotos/21.jpg', 'alt' => 'Tractor RC 1404', 'modelo' => 'RC 1404', 'hp' => '140 HP', 'pagina' => '../tractors/models-tractors/rc-1404.php'],
     ];
     ?>
     <header>
@@ -114,41 +114,43 @@
         </section>
     </main>
 
-    <footer class="footer-custom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Tractores Clavijo</h5>
-                    <p>Conéctate con nosotros en nuestras redes sociales.</p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/tractores_clavijo/" target="_blank" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.facebook.com/TractoresClavijo/" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Ubicación</h5>
-                    <address>
-                        Carril Santos Lugares Ingeniero Giagnoni<br>
-                        Mendoza - ARGENTINA<br>
-                        <i class="bi bi-telephone-fill"></i> Teléfono: 0263 452-6714
-                    </address>
-                </div>
-                <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
-                    <h5>Enlaces Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
-                        <li><a href="../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
-                        <li><a href="tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-                        <li><a href="#"><i class="bi bi-caret-right-fill"></i> Repuestos</a></li>
-                        <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center border-top pt-3 mt-4">
-                <small>© <?php echo date("Y"); ?> Tractores Clavijo - Todos los derechos reservados</small>
-            </div>
+    <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Tractores Clavijo</h5>
+          <p>Conecte con nosotros en nuestras redes sociales y manténgase al día con las últimas novedades.</p>
+          <a href="https://www.instagram.com/tractores.clavijo/" target="_blank" class="d-block text-decoration-none mb-2">
+            <i class="bi bi-instagram"></i> @tractores.clavijo
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100089567695602" target="_blank" class="d-block text-decoration-none">
+            <i class="bi bi-facebook"></i> Tractores Clavijo
+          </a>
         </div>
-    </footer>
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Ubicación</h5>
+          <address>
+            Carril Santos Lugares Ingeniero Giagnoni<br>
+            Mendoza - ARGENTINA<br>
+            <i class="bi bi-telephone-fill"></i> Teléfono: 0263 452-6714
+          </address>
+        </div>
+        <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
+            <li><a href="../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
+            <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
+            <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
+            <li><a href="../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li> 
+          </ul>
+        </div>
+      </div>
+      <div class="text-center border-top pt-3 mt-4">
+        <small>© <?php echo date("Y"); ?> Tractores Clavijo - Todos los derechos reservados</small>
+      </div>
+    </div>
+  </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

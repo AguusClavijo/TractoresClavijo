@@ -1,0 +1,285 @@
+/* css/mate.css */
+
+/* --- IMPORTANTE: ELIMINAR CUALQUIER @import SI ESTÁN PRESENTES EN ESTE ARCHIVO --- */
+/* @import url('style.css');    <-- ¡ELIMINAR ESTA LÍNEA! */
+/* @import url('contact.css'); <-- ¡ELIMINAR ESTA LÍNEA! */
+
+/* Contenedor principal de la interfaz de venta (la tarjeta grande del producto) */
+.product-detail-container {
+    background-color: var(--dark-text); /* Fondo oscuro como las tarjetas de merch */
+    padding: 3rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    margin-top: 3rem; /* Espacio arriba para navbar/header */
+    margin-bottom: 3rem; /* Espacio abajo para footer */
+    color: var(--light-text); /* Texto claro por defecto para este contenedor */
+}
+
+/* Sección de la imagen del producto */
+.product-detail-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la imagen horizontalmente */
+    justify-content: center; /* Centra la imagen verticalmente */
+}
+
+.main-image-wrapper {
+    width: 100%;
+    padding-bottom: 100%; /* Crea un contenedor cuadrado para la imagen principal */
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.8rem;
+    background-color: #212529; /* Fondo muy oscuro para el espacio de la imagen */
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra interna para profundidad */
+}
+
+.product-detail-main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+    transition: transform 0.3s ease; /* Transición suave si se cambia de imagen */
+}
+
+/* Miniaturas de imágenes (si tienes más vistas del producto) */
+.thumbnail-images {
+    display: flex;
+    gap: 10px; /* Espacio entre miniaturas */
+    margin-top: 1.5rem;
+}
+
+.thumbnail-img {
+    width: 80px; /* Tamaño fijo para las miniaturas */
+    height: 80px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #212529; /* Fondo de las miniaturas */
+    padding: 5px; /* Pequeño padding interno para la imagen */
+}
+
+.thumbnail-img:hover,
+.thumbnail-img.active {
+    border-color: var(--light-green-accent); /* Borde verde al seleccionar o pasar el mouse */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Sombra para resaltar */
+}
+
+
+/* Sección de información de venta del producto */
+.product-detail-info {
+    padding-left: 2.5rem; /* Espacio entre la imagen y la información en desktop */
+}
+
+.product-detail-title {
+    font-size: 3rem; /* Título grande para destacar */
+    font-weight: 700;
+    color: var(--light-green-accent); /* Color verde claro para el título */
+    margin-bottom: 1rem;
+}
+
+.product-detail-price {
+    font-size: 2.2rem; /* Precio grande y claro */
+    font-weight: 600;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+}
+
+.product-detail-description {
+    font-size: 1.1rem;
+    line-height: 1.7; /* Espaciado de línea para mejor lectura */
+    color: rgba(255, 255, 255, 0.85); /* Texto ligeramente más claro */
+    margin-bottom: 2rem;
+}
+
+.product-detail-description ul {
+    list-style: none; /* Eliminar viñetas predeterminadas de la lista */
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.product-detail-description ul li {
+    position: relative;
+    padding-left: 1.5rem; /* Espacio para el ícono de check */
+    margin-bottom: 0.5rem;
+}
+
+.product-detail-description ul li::before {
+    content: '\f00c'; /* Ícono de check de Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--primary-green);
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+}
+
+
+/* Opciones de selección de compra (Tipo, Cantidad) */
+/* Usamos Flexbox para alinear los labels y los campos */
+.product-options .product-option-item {
+    display: flex;
+    align-items: center; /* Alinea verticalmente label y select/input */
+    margin-bottom: 1rem; /* Espacio entre cada opción */
+}
+
+.product-options .form-label {
+    font-weight: 600;
+    color: var(--light-green-accent);
+    margin-bottom: 0; /* Eliminar margen inferior del label para alineación flex */
+    width: 80px; /* Ancho fijo para labels para alinearlos */
+    flex-shrink: 0; /* Evita que el label se encoja */
+    margin-right: 15px; /* Espacio entre el label y el campo */
+    text-align: right; /* Alinea el texto del label a la derecha */
+}
+
+.product-options .form-select,
+.product-options .form-control {
+    background-color: #495057; /* Fondo oscuro para los selects/inputs */
+    color: var(--light-text);
+    border: 1px solid #6c757d;
+    border-radius: 0.3rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    flex-grow: 1; /* Permite que el campo ocupe el espacio restante */
+    max-width: 200px; /* Limita el ancho máximo para que no se extienda demasiado */
+    appearance: none; /* Oculta la flecha por defecto de select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f8f9fa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+.product-options .form-select:focus,
+.product-options .form-control:focus {
+    background-color: #495057; /* Mantiene el color al enfocar */
+    color: var(--light-text);
+    border-color: var(--light-green-accent); /* Borde verde al enfocar */
+    box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+.product-options .form-control[type="number"] {
+    max-width: 100px; /* Ancho fijo para el input de cantidad, ajustado al diseño */
+    text-align: center;
+}
+
+/* Botones de acción (Añadir al Carrito, Volver) */
+.product-actions .btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.product-actions .btn-success {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.product-actions .btn-success:hover {
+    background-color: var(--light-green-accent);
+    border-color: var(--light-green-accent);
+    transform: translateY(-2px); /* Pequeña elevación al pasar el mouse */
+}
+
+.product-actions .btn-outline-secondary {
+    color: var(--light-text);
+    border-color: #6c757d; /* Borde gris más claro */
+}
+
+.product-actions .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--light-green-accent);
+    color: var(--light-green-accent);
+}
+
+/* Información Adicional (Envío, Pagos) */
+.delivery-info p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.delivery-info .fa-solid {
+    color: var(--light-green-accent);
+    margin-right: 0.5rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 991.98px) { /* Tablets */
+    .product-detail-container {
+        padding: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .product-detail-image {
+        margin-bottom: 2rem; /* Espacio debajo de la imagen */
+    }
+    .product-detail-info {
+        padding-left: 0; /* Eliminar padding izquierdo */
+        text-align: center; /* Centrar texto en tablets */
+    }
+    .product-detail-title {
+        font-size: 2.5rem;
+    }
+    .product-detail-price {
+        font-size: 1.8rem;
+    }
+    .product-actions {
+        display: flex;
+        flex-direction: column; /* Botones en columna */
+        align-items: center;
+        gap: 1rem; /* Espacio entre botones */
+    }
+    .product-actions .btn-lg {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin: 0 !important; /* Anular márgenes de Bootstrap */
+    }
+    .product-options .product-option-item {
+        flex-direction: column; /* Apila label y campo en móviles */
+        align-items: flex-start; /* Alinea items a la izquierda */
+        text-align: left;
+    }
+    .product-options .form-label {
+        width: auto; /* Remover ancho fijo */
+        text-align: left; /* Alinea label a la izquierda */
+        margin-right: 0;
+        margin-bottom: 0.5rem; /* Espacio entre label y campo apilado */
+    }
+    .product-options .form-select,
+    .product-options .form-control {
+        max-width: 100%; /* Permite que ocupen todo el ancho disponible */
+        width: 100%;
+    }
+    .product-detail-description ul {
+        text-align: left; /* Mantener la lista alineada a la izquierda */
+        margin-left: auto;
+        margin-right: auto;
+        max-width: fit-content; /* Ajustar ancho para que el texto no se extienda demasiado */
+    }
+}
+
+@media (max-width: 767.98px) { /* Móviles */
+    .product-detail-container {
+        padding: 1.5rem;
+    }
+    .product-detail-title {
+        font-size: 2rem;
+    }
+    .product-detail-price {
+        font-size: 1.5rem;
+    }
+    .product-detail-description {
+        font-size: 1rem;
+    }
+    .thumbnail-img {
+        width: 60px;
+        height: 60px;
+    }
+}
