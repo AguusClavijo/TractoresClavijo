@@ -1,0 +1,33 @@
+# -----------------------------------------------
+# 1. IGNORAR ARCHIVOS Y CARPETAS GENERADAS POR DOCKER
+# -----------------------------------------------
+# Docker Compose: Contenedores persistentes y logs
+/db_data/              # Contiene todos los datos de MariaDB (¡MUY GRANDE y SENSIBLE!)
+/n8n_data/             # Contiene la configuración, credenciales y logs de n8n
+/chroma_db/            # Si hubieras usado RAG, contendría los vectores de embeddings
+*.log                  # Archivos de log generados por los contenedores
+.dockerignore          # (Opcional, pero se suele ignorar por convención)
+
+# -----------------------------------------------
+# 3. IGNORAR ARCHIVOS Y CONFIGURACIONES DE ENTORNO
+# -----------------------------------------------
+.env                   # Archivos de variables de entorno (Contraseñas, claves API, etc.)
+*.sqlite               # Bases de datos SQLite temporales si usaras Symfony/Laravel
+
+# -----------------------------------------------
+# 4. IGNORAR ARCHIVOS TEMPORALES DE SISTEMAS Y EDITORES
+# -----------------------------------------------
+# macOS
+.DS_Store
+# Linux
+*~
+# Windows Thumbnails
+Thumbs.db
+# Visual Studio Code
+.vscode/
+
+# -----------------------------------------------
+# 5. ARCHIVOS TEMPORALES DE PHP/APACHE
+# -----------------------------------------------
+/storage/              # Si tienes alguna carpeta de uploads o caché
+/cache/
