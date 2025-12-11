@@ -39,7 +39,7 @@ $cliente_info = null;
 $profile_errors = [];
 
 // Obtener información del cliente
-$sql_cliente = "SELECT nombre, apellido, email, telefono, direccion_calle, direccion_numero, direccion_ciudad, direccion_provincia, direccion_codigo_postal, fecha_registro 
+$sql_cliente = "SELECT nombre, apellido, email, telefono, fecha_registro 
                 FROM clientes WHERE id_cliente = ?";
 $stmt_cliente = $conn->prepare($sql_cliente);
 if ($stmt_cliente) {
@@ -95,9 +95,6 @@ $conn->close();
                         <li class="nav-item">
                             <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'contact.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/contact/contact.php">Contacto</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'merch.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/merch/merch.php">Merch</a>
-                        </li>
 
                         <?php if (isset($_SESSION['user_id'])): ?>
                             <li class="nav-item dropdown ms-lg-3">
@@ -106,7 +103,6 @@ $conn->close();
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUserDropdownGlobal">
                                     <li><a class="dropdown-item" href="../perfil/perfil.php">Mi Perfil</a></li>
-                                    <li><a class="dropdown-item" href="../pedidos/mis_pedidos.php">Mis Pedidos</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -123,15 +119,6 @@ $conn->close();
                                 <?php endif; ?>
                             </li>
                         <?php endif; ?>
-
-                        <li class="nav-item ms-lg-2">
-                            <a class="btn btn-cart <?php echo ($cart_count > 0 ? 'cart-active-indicator' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/cart/cart.php">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <?php if ($cart_count > 0): ?>
-                                    <span class="badge bg-danger ms-1 cart-count-badge"><?php echo $cart_count; ?></span>
-                                <?php endif; ?>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -159,18 +146,6 @@ $conn->close();
                         <p><strong>Email:</strong> <?php echo htmlspecialchars($cliente_info['email']); ?></p>
                         <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($cliente_info['telefono'] ?? 'No especificado'); ?></p>
                         <p><strong>Miembro desde:</strong> <?php echo date("d/m/Y", strtotime($cliente_info['fecha_registro'])); ?></p>
-
-                        <hr>
-                        <h5 class="card-title mt-4 mb-3"><i class="bi bi-house-door-fill me-2"></i>Dirección de Envío</h5>
-                        <?php if (!empty($cliente_info['direccion_calle'])): ?>
-                            <address>
-                                <?php echo htmlspecialchars($cliente_info['direccion_calle']); ?> <?php echo htmlspecialchars($cliente_info['direccion_numero'] ?? ''); ?><br>
-                                <?php echo htmlspecialchars($cliente_info['direccion_ciudad'] ?? ''); ?><br>
-                                <?php echo htmlspecialchars($cliente_info['direccion_provincia'] ?? ''); ?>, <?php echo htmlspecialchars($cliente_info['direccion_codigo_postal'] ?? ''); ?>
-                            </address>
-                        <?php else: ?>
-                            <p>No has especificado una dirección de envío.</p>
-                        <?php endif; ?>
                     </div>
                 </div>
             <?php elseif (empty($profile_errors)): ?>
@@ -206,7 +181,6 @@ $conn->close();
                         <li><a href="../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
                         <li><a href="../about/about.php"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
                         <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-                        <li><a href="../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li>
                         <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
                     </ul>
                 </div>

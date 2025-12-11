@@ -28,7 +28,7 @@ function redirect_with_message_auth($url, $message, $type = 'danger', $form_to_s
 }
 
 $script_path_parts = explode('/', dirname($_SERVER['SCRIPT_NAME']));
-$project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_parts[1]) && is_dir($_SERVER['DOCUMENT_ROOT'] . '/' . $script_path_parts[1])) ? '/' . $script_path_parts[1] : '';
+$project_root_segment = '';
 $login_page_url = $project_root_segment . "/frontend/login/login.php";
 $main_page_url = $project_root_segment . "/frontend/main/main.php";
 $reset_password_form_page_url = $project_root_segment . "/frontend/login/reset_password_form.php";

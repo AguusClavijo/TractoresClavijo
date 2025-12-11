@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.5
+    container_name: tractores_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_segura
+      MYSQL_DATABASE: tractores_clavijo_db
+      MYSQL_USER: tractor_user
+      MYSQL_PASSWORD: tractor_password
+    volumes:
+      - ./db_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "3306:3306"
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tractores_php_web
+    ports:
+      - "8088:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: tractores_phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: tractor_user
+      PMA_PASSWORD: tractor_password
+    depends_on:
+      - db
+    
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n-automation
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=localhost 
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+      - TZ=America/Argentina/Mendoza 
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    depends_on:
+      - mailhog

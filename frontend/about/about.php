@@ -57,9 +57,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                         <li class="nav-item">
                             <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'contact.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/contact/contact.php">Contacto</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'merch.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/merch/merch.php">Merch</a>
-                        </li>
 
                         <?php if (isset($_SESSION['user_id'])): ?>
                             <li class="nav-item dropdown ms-lg-3">
@@ -68,7 +65,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUserDropdownGlobal">
                                     <li><a class="dropdown-item" href="../perfil/perfil.php">Mi Perfil</a></li>
-                                    <li><a class="dropdown-item" href="../pedidos/mis_pedidos.php">Mis Pedidos</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -86,14 +82,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                             </li>
                         <?php endif; ?>
 
-                        <li class="nav-item ms-lg-2">
-                            <a class="btn btn-cart <?php echo ($cart_count > 0 ? 'cart-active-indicator' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/cart/cart.php">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <?php if ($cart_count > 0): ?>
-                                    <span class="badge bg-danger ms-1 cart-count-badge"><?php echo $cart_count; ?></span>
-                                <?php endif; ?>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -220,7 +208,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                         <li><a href="../main/main.php"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
                         <li><a href="#"><i class="bi bi-caret-right-fill"></i> Sobre Nosotros</a></li>
                         <li><a href="../tractors/tractors.php"><i class="bi bi-caret-right-fill"></i> Tractores</a></li>
-                        <li><a href="../merch/merch.php"><i class="bi bi-caret-right-fill"></i> Merch</a></li>
                         <li><a href="../contact/contact.php"><i class="bi bi-caret-right-fill"></i> Contacto</a></li>
                     </ul>
                 </div>

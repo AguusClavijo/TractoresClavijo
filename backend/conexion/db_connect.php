@@ -1,10 +1,10 @@
 <?php
 
-define('DB_SERVER', 'localhost');
+define('DB_SERVER', 'db');
 define('DB_USERNAME', 'tractor_user');
-define('DB_PASSWORD', '@J)pQK*pz3r.dy]f');
+define('DB_PASSWORD', 'tractor_password');
 define('DB_NAME', 'tractores_clavijo_db');
-define('DB_PORT', 33065);
+define('DB_PORT', 3306);
 
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME, DB_PORT);
 

@@ -13,7 +13,7 @@ if (isset($_SESSION['carrito']) && is_array($_SESSION['carrito'])) {
 // Poner esto al inicio de tus archivos PHP o en un config.php
 // session_start(); // Ya lo tienes
 $script_path_parts = explode('/', dirname($_SERVER['SCRIPT_NAME']));
-$project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_parts[1]) && $script_path_parts[1] !== 'frontend' && $script_path_parts[1] !== 'backend') ? '/' . $script_path_parts[1] : '';
+$project_root_segment = '';
 // Si tu proyecto está en localhost/TractoresClavijo/, $project_root_segment será /TractoresClavijo
 // Si tu proyecto está en localhost/, $project_root_segment será ''
 ?>
@@ -55,9 +55,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
             <li class="nav-item">
               <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'contact.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/contact/contact.php">Contacto</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'merch.php') !== false ? 'active' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/merch/merch.php">Merch</a>
-            </li>
 
             <?php if (isset($_SESSION['user_id'])): ?>
               <li class="nav-item dropdown ms-lg-3">
@@ -66,7 +63,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarUserDropdownGlobal">
                   <li><a class="dropdown-item" href="../perfil/perfil.php">Mi Perfil</a></li>
-                  <li><a class="dropdown-item" href="../pedidos/mis_pedidos.php">Mis Pedidos</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
@@ -83,15 +79,6 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
                 <?php endif; ?>
               </li>
             <?php endif; ?>
-
-            <li class="nav-item ms-lg-2">
-              <a class="btn btn-cart <?php echo ($cart_count > 0 ? 'cart-active-indicator' : ''); ?>" href="<?php echo $project_root_segment; ?>/frontend/cart/cart.php">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <?php if ($cart_count > 0): ?>
-                  <span class="badge bg-danger ms-1 cart-count-badge"><?php echo $cart_count; ?></span>
-                <?php endif; ?>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -123,7 +110,7 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
 
       <div class="form-wrapper" id="loginFormWrapper" style="<?php echo (isset($_SESSION['active_form']) && $_SESSION['active_form'] === 'register') || (isset($_SESSION['active_form']) && $_SESSION['active_form'] === 'forgot_password') ? 'display: none;' : 'display: block;'; ?>">
         <h2>Iniciar Sesión</h2>
-        <form action="../../backend/php/auth_handler.php" method="POST">
+        <form action="<?php echo $project_root_segment; ?>/backend/php/auth_handler.php" method="POST">
           <div class="contenedor-input">
             <input type="email" name="login_email" required value="<?php echo htmlspecialchars($_SESSION['form_data']['login_email'] ?? ''); ?>">
             <label>Email</label>
@@ -147,7 +134,7 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
 
       <div class="form-wrapper" id="registerFormWrapper" style="<?php echo (isset($_SESSION['active_form']) && $_SESSION['active_form'] === 'register') ? 'display: block;' : 'display: none;'; ?>">
         <h2>Registrarse</h2>
-        <form action="../../backend/php/auth_handler.php" method="POST">
+        <form action="<?php echo $project_root_segment; ?>/backend/php/auth_handler.php" method="POST">
           <div class="contenedor-input">
             <input type="text" name="register_nombre" required value="<?php echo htmlspecialchars($_SESSION['form_data']['register_nombre'] ?? ''); ?>">
             <label>Nombre</label>
@@ -186,7 +173,7 @@ $project_root_segment = (isset($script_path_parts[1]) && !empty($script_path_par
       <div class="form-wrapper" id="forgotPasswordFormWrapper" style="<?php echo (isset($_SESSION['active_form']) && $_SESSION['active_form'] === 'forgot_password') ? 'display: block;' : 'display: none;';
                                                                       unset($_SESSION['active_form']); ?>">
         <h2>Recuperar Contraseña</h2>
-        <form action="../../backend/php/auth_handler.php" method="POST">
+        <form action="<?php echo $project_root_segment; ?>/backend/php/auth_handler.php" method="POST">
           <p style="color: #ccc; font-size: 0.9em; margin-bottom: 20px;">Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña.</p>
           <div class="contenedor-input">
             <input type="email" name="forgot_email" required value="<?php echo htmlspecialchars($_SESSION['form_data']['forgot_email'] ?? ''); ?>">
